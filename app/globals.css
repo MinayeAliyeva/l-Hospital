@@ -90,3 +90,19 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+
+    @keyframes slideLeft {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+    .animate-slide {
+      animation: slideLeft 30s linear infinite;
+    }
+    .animate-slide:hover {
+      animation-play-state: paused;
+    }
