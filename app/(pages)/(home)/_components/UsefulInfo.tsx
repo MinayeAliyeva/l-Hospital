@@ -91,13 +91,12 @@ export default function UsefulInfo() {
 
   return (
     <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-10 lg:px-36">
+      <div className="container mx-auto px-10">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             Faydalı Məlumatlar
           </h2>
 
-          {/* Əl ilə idarə olunan düymələr */}
           <div className="flex gap-2">
             <Button
               variant="outline"
@@ -118,7 +117,7 @@ export default function UsefulInfo() {
         </div>
 
         <Carousel
-          setApi={setApi}  // <-- Bu vacibdir!
+          setApi={setApi} 
           opts={{ align: 'start', loop: true }}
           plugins={[Autoplay({ delay: 3000 })]}
           className="w-full"
