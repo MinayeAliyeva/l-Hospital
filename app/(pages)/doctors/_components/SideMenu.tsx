@@ -1,6 +1,8 @@
+
 "use client";
 import React, { useState } from "react";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const menuItems = [
   { name: "Tariximiz", path: "#", id: "history" },
@@ -17,19 +19,18 @@ const menuItems = [
 const SideMenu = () => {
   const [activeMenu, setActiveMenu] = useState("doctors");
 
-
   return (
-    <aside className="w-96 shrink-0">
-      <div className="space-y-3">
+    <aside className="w-full lg:w-96 shrink-0">
+      <div className="space-y-2 sm:space-y-3">
         {menuItems.map((item, index) => (
-          <a
+          <Link
             key={index}
             href={item.path}
             onClick={(e) => {
               e.preventDefault();
               setActiveMenu(item.id);
             }}
-            className={`flex items-center justify-between px-8 py-5 rounded-xl transition-all group ${
+            className={`flex items-center justify-between px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 rounded-lg sm:rounded-xl transition-all group ${
               activeMenu === item.id
                 ? "text-white shadow-lg"
                 : "text-gray-700 hover:opacity-80"
@@ -41,23 +42,23 @@ const SideMenu = () => {
             }
           >
             <span
-              className={`text-lg ${
+              className={`text-sm sm:text-base md:text-lg ${
                 activeMenu === item.id ? "font-semibold" : "font-normal"
               }`}
             >
               {item.name}
             </span>
             {activeMenu === item.id ? (
-              <div className="bg-white rounded-full p-2">
+              <div className="bg-white rounded-full p-1 sm:p-1.5 md:p-2">
                 <ChevronRight
-                  size={20}
+                  className="w-4 h-4 sm:w-5 sm:h-5"
                   style={{ color: "#0095DA", transform: "rotate(90deg)" }}
                 />
               </div>
             ) : (
-              <ChevronRight size={20} className="text-cyan-500" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-500" />
             )}
-          </a>
+          </Link>
         ))}
       </div>
     </aside>
